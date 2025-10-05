@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listas em HTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h1 { color: #2c3e50; }
+        h2 { color: #34495e; border-bottom: 2px solid #3498db; }
+        .exemplo {
+            background: #ecf0f1;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+            border-radius: 5px;
+        }
+        ul, ol { margin: 10px 0; }
+        li { margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Listas em HTML</h1>
+        
+        <h2>1. Lista Não Ordenada (ul)</h2>
+        <div class="exemplo">
+            <p><strong>Frutas favoritas:</strong></p>
+            <ul>
+                <li>Maçã</li>
+                <li>Banana</li>
+                <li>Laranja</li>
+                <li>Uva</li>
+            </ul>
+        </div>
+
+        <h2>2. Lista Ordenada (ol)</h2>
+        <div class="exemplo">
+            <p><strong>Passos para fazer café:</strong></p>
+            <ol>
+                <li>Ferver a água</li>
+                <li>Colocar o pó de café no filtro</li>
+                <li>Despejar a água quente</li>
+                <li>Aguardar o café passar</li>
+                <li>Servir na xícara</li>
+            </ol>
+        </div>
+
+        <h2>3. Lista de Definição (dl)</h2>
+        <div class="exemplo">
+            <p><strong>Glossário de termos:</strong></p>
+            <dl>
+                <dt>HTML</dt>
+                <dd>HyperText Markup Language - Linguagem de marcação para páginas web</dd>
+                
+                <dt>CSS</dt>
+                <dd>Cascading Style Sheets - Linguagem para estilização de páginas web</dd>
+                
+                <dt>JavaScript</dt>
+                <dd>Linguagem de programação para interatividade em páginas web</dd>
+            </dl>
+        </div>
+
+        <h2>4. Listas Aninhadas</h2>
+        <div class="exemplo">
+            <p><strong>Estrutura de um site:</strong></p>
+            <ul>
+                <li>Frontend
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </li>
+                <li>Backend
+                    <ol>
+                        <li>Servidor web</li>
+                        <li>Base de dados</li>
+                        <li>APIs</li>
+                    </ol>
+                </li>
+                <li>DevOps
+                    <ul>
+                        <li>Controle de versão</li>
+                        <li>Deploy</li>
+                        <li>Monitoramento</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h2>5. Lista com Links</h2>
+        <div class="exemplo">
+            <p><strong>Recursos úteis:</strong></p>
+            <ul>
+                <li><a href="https://developer.mozilla.org">MDN Web Docs</a></li>
+                <li><a href="https://www.w3schools.com">W3Schools</a></li>
+                <li><a href="https://codepen.io">CodePen</a></li>
+            </ul>
+        </div>
+
+        <h2>6. Diferentes Tipos de Numeração</h2>
+        <div class="exemplo">
+            <p><strong>Lista com números romanos:</strong></p>
+            <ol type="I">
+                <li>Introdução</li>
+                <li>Desenvolvimento</li>
+                <li>Conclusão</li>
+            </ol>
+
+            <p><strong>Lista com letras:</strong></p>
+            <ol type="a">
+                <li>Primeira opção</li>
+                <li>Segunda opção</li>
+                <li>Terceira opção</li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>

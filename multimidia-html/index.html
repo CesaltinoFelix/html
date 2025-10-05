@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimídia em HTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f1f2f6;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        
+        h2 {
+            color: #34495e;
+            border-bottom: 3px solid #8e44ad;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        
+        .exemplo {
+            background: #f8f9fa;
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 4px solid #8e44ad;
+            border-radius: 5px;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        /* Elementos de multimídia */
+        video, audio {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        iframe {
+            width: 100%;
+            height: 315px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        canvas {
+            border: 2px solid #34495e;
+            border-radius: 8px;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .player-controls {
+            margin-top: 15px;
+        }
+        
+        .player-controls button {
+            background: #8e44ad;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-right: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .player-controls button:hover {
+            background: #732d91;
+        }
+        
+        figure {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        figcaption {
+            margin-top: 10px;
+            font-style: italic;
+            color: #666;
+        }
+        
+        .svg-demo {
+            text-align: center;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 8px;
+        }
+        
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .formato-info {
+            background: #e8f5e8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        
+        .formato-info h4 {
+            margin-top: 0;
+            color: #27ae60;
+        }
+        
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            iframe {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎬 Multimídia em HTML</h1>
+
+        <h2>1. Vídeos HTML5</h2>
+        <div class="exemplo">
+            <h3>Vídeo Básico com Controles</h3>
+            <figure>
+                <video controls poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='360'%3E%3Crect width='640' height='360' fill='%23000'/%3E%3Ccircle cx='320' cy='180' r='40' fill='%23fff'/%3E%3Cpolygon points='310,160 310,200 350,180' fill='%23000'/%3E%3Ctext x='320' y='220' text-anchor='middle' fill='%23fff' font-size='16'%3EClique para reproduzir%3C/text%3E%3C/svg%3E">
+                    <source src="video-exemplo.mp4" type="video/mp4">
+                    <source src="video-exemplo.webm" type="video/webm">
+                    <source src="video-exemplo.ogg" type="video/ogg">
+                    Seu navegador não suporta vídeos HTML5.
+                </video>
+                <figcaption>Exemplo de vídeo HTML5 com múltiplos formatos</figcaption>
+            </figure>
+            
+            <h4>Atributos importantes do vídeo:</h4>
+            <ul>
+                <li><code>controls</code> - Mostra controles de reprodução</li>
+                <li><code>autoplay</code> - Reproduz automaticamente (use com cuidado)</li>
+                <li><code>loop</code> - Reproduz em loop contínuo</li>
+                <li><code>muted</code> - Inicia sem som (necessário para autoplay)</li>
+                <li><code>poster</code> - Imagem de preview antes da reprodução</li>
+                <li><code>preload</code> - Como carregar o vídeo (none, metadata, auto)</li>
+            </ul>
+        </div>
+
+        <h2>2. Áudio HTML5</h2>
+        <div class="exemplo">
+            <h3>Player de Áudio</h3>
+            <figure>
+                <audio controls>
+                    <source src="audio-exemplo.mp3" type="audio/mpeg">
+                    <source src="audio-exemplo.ogg" type="audio/ogg">
+                    <source src="audio-exemplo.wav" type="audio/wav">
+                    Seu navegador não suporta áudio HTML5.
+                </audio>
+                <figcaption>Player de áudio com múltiplos formatos</figcaption>
+            </figure>
+            
+            <div class="formato-info">
+                <h4>📁 Formatos de Áudio Recomendados</h4>
+                <ul>
+                    <li><strong>MP3:</strong> Boa compressão, amplamente suportado</li>
+                    <li><strong>OGG:</strong> Código aberto, boa qualidade</li>
+                    <li><strong>WAV:</strong> Sem compressão, alta qualidade</li>
+                    <li><strong>AAC:</strong> Sucessor do MP3, melhor qualidade</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>3. Iframes e Conteúdo Incorporado</h2>
+        <div class="exemplo">
+            <div class="grid">
+                <div class="card">
+                    <h3>YouTube Incorporado</h3>
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                            title="YouTube video player" 
+                            allowfullscreen>
+                    </iframe>
+                    <p><small>Vídeo incorporado do YouTube</small></p>
+                </div>
+                
+                <div class="card">
+                    <h3>Google Maps</h3>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3113.0260707635985!2d-9.142685684688!3d38.736946279586126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd19338ccf42fad9%3A0x35b7c5e645c153c0!2sLisboa%2C%20Portugal!5e0!3m2!1spt!2spt!4v1234567890123"
+                            title="Mapa de Lisboa"
+                            allowfullscreen>
+                    </iframe>
+                    <p><small>Mapa incorporado do Google Maps</small></p>
+                </div>
+            </div>
+            
+            <h4>⚠️ Cuidados com Iframes:</h4>
+            <ul>
+                <li>Sempre use <code>title</code> para acessibilidade</li>
+                <li>Configure adequadamente o <code>sandbox</code> quando necessário</li>
+                <li>Considere a política de <code>loading="lazy"</code></li>
+                <li>Teste a responsividade em diferentes dispositivos</li>
+            </ul>
+        </div>
+
+        <h2>4. SVG (Scalable Vector Graphics)</h2>
+        <div class="exemplo">
+            <div class="svg-demo">
+                <h3>Gráficos Vetoriais Inline</h3>
+                
+                <!-- SVG inline -->
+                <svg width="300" height="200" viewBox="0 0 300 200">
+                    <defs>
+                        <linearGradient id="gradiente" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#8e44ad;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- Formas básicas -->
+                    <rect x="10" y="10" width="80" height="60" fill="url(#gradiente)" rx="10"/>
+                    <circle cx="150" cy="40" r="25" fill="#e74c3c"/>
+                    <ellipse cx="250" cy="40" rx="30" ry="20" fill="#f39c12"/>
+                    
+                    <!-- Texto -->
+                    <text x="150" y="100" text-anchor="middle" font-family="Arial" font-size="16" fill="#2c3e50">
+                        SVG Interativo
+                    </text>
+                    
+                    <!-- Polígono (estrela) -->
+                    <polygon points="150,120 160,140 180,140 166,154 172,174 150,162 128,174 134,154 120,140 140,140"
+                             fill="#f1c40f" stroke="#f39c12" stroke-width="2"/>
+                    
+                    <!-- Linha e caminho -->
+                    <line x1="20" y1="180" x2="280" y2="180" stroke="#34495e" stroke-width="2"/>
+                    <path d="M20,160 Q150,120 280,160" stroke="#27ae60" stroke-width="3" fill="none"/>
+                </svg>
+                
+                <p><em>SVG inline permite interatividade e animações CSS/JS</em></p>
+            </div>
+            
+            <h4>🎨 Vantagens do SVG:</h4>
+            <ul>
+                <li><strong>Escalável:</strong> Mantém qualidade em qualquer tamanho</li>
+                <li><strong>Editável:</strong> Pode ser modificado com CSS e JavaScript</li>
+                <li><strong>Leve:</strong> Arquivos pequenos para gráficos simples</li>
+                <li><strong>Acessível:</strong> Suporta texto alternativo e descrições</li>
+            </ul>
+        </div>
+
+        <h2>5. Canvas para Gráficos Dinâmicos</h2>
+        <div class="exemplo">
+            <h3>Desenho em Canvas</h3>
+            <canvas id="meuCanvas" width="400" height="200">
+                Seu navegador não suporta Canvas HTML5.
+            </canvas>
+            
+            <div class="player-controls">
+                <button onclick="desenharRetangulo()">Retângulo</button>
+                <button onclick="desenharCirculo()">Círculo</button>
+                <button onclick="desenharTexto()">Texto</button>
+                <button onclick="limparCanvas()">Limpar</button>
+            </div>
+            
+            <script>
+                const canvas = document.getElementById('meuCanvas');
+                const ctx = canvas.getContext('2d');
+                
+                // Configuração inicial
+                ctx.fillStyle = '#ecf0f1';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                function desenharRetangulo() {
+                    ctx.fillStyle = '#3498db';
+                    ctx.fillRect(50, 50, 100, 80);
+                    ctx.strokeStyle = '#2980b9';
+                    ctx.strokeRect(50, 50, 100, 80);
+                }
+                
+                function desenharCirculo() {
+                    ctx.beginPath();
+                    ctx.arc(250, 90, 40, 0, 2 * Math.PI);
+                    ctx.fillStyle = '#e74c3c';
+                    ctx.fill();
+                    ctx.strokeStyle = '#c0392b';
+                    ctx.stroke();
+                }
+                
+                function desenharTexto() {
+                    ctx.font = '20px Arial';
+                    ctx.fillStyle = '#2c3e50';
+                    ctx.textAlign = 'center';
+                    ctx.fillText('Canvas HTML5', 200, 170);
+                }
+                
+                function limparCanvas() {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    ctx.fillStyle = '#ecf0f1';
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                }
+            </script>
+            
+            <h4>🖼️ Canvas vs SVG:</h4>
+            <div class="grid">
+                <div class="card">
+                    <h5>Canvas</h5>
+                    <ul>
+                        <li>Bitmap/raster</li>
+                        <li>Programático (JavaScript)</li>
+                        <li>Melhor para jogos e gráficos complexos</li>
+                        <li>Não é acessível por padrão</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h5>SVG</h5>
+                    <ul>
+                        <li>Vetorial</li>
+                        <li>Declarativo (XML/HTML)</li>
+                        <li>Melhor para ícones e gráficos simples</li>
+                        <li>Acessível e responsivo</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <h2>6. Elementos de Progresso e Medição</h2>
+        <div class="exemplo">
+            <div class="grid">
+                <div class="card">
+                    <h3>Barra de Progresso</h3>
+                    <label for="progresso-download">Download:</label>
+                    <progress id="progresso-download" value="70" max="100">70%</progress>
+                    <p>70% concluído</p>
+                    
+                    <label for="progresso-upload">Upload:</label>
+                    <progress id="progresso-upload" value="0.3">30%</progress>
+                    <p>30% concluído (usando valor decimal)</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Medidor (Meter)</h3>
+                    <label for="meter-disk">Uso do disco:</label>
+                    <meter id="meter-disk" value="6" min="0" max="10">6 de 10</meter>
+                    <p>6GB de 10GB utilizados</p>
+                    
+                    <label for="meter-bateria">Bateria:</label>
+                    <meter id="meter-bateria" value="0.8" optimum="0.6">80%</meter>
+                    <p>Nível da bateria: 80%</p>
+                </div>
+            </div>
+            
+            <h4>Diferenças importantes:</h4>
+            <ul>
+                <li><code>&lt;progress&gt;</code>: Para mostrar progresso de uma tarefa</li>
+                <li><code>&lt;meter&gt;</code>: Para mostrar medições em um intervalo conhecido</li>
+            </ul>
+        </div>
+
+        <h2>7. Multimídia Responsiva</h2>
+        <div class="exemplo">
+            <h3>Técnicas para Responsividade</h3>
+            
+            <h4>1. CSS para vídeos responsivos:</h4>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                        title="Vídeo responsivo"
+                        allowfullscreen>
+                </iframe>
+            </div>
+            
+            <h4>2. Imagens responsivas com picture:</h4>
+            <picture>
+                <source media="(max-width: 600px)" 
+                        srcset="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect width='300' height='200' fill='%23e74c3c'/%3E%3Ctext x='150' y='100' text-anchor='middle' fill='white'%3EMobile%3C/text%3E%3C/svg%3E">
+                <source media="(max-width: 1200px)" 
+                        srcset="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='300'%3E%3Crect width='600' height='300' fill='%233498db'/%3E%3Ctext x='300' y='150' text-anchor='middle' fill='white'%3ETablet%3C/text%3E%3C/svg%3E">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400'%3E%3Crect width='800' height='400' fill='%2327ae60'/%3E%3Ctext x='400' y='200' text-anchor='middle' fill='white'%3EDesktop%3C/text%3E%3C/svg%3E" 
+                     alt="Imagem responsiva com diferentes versões"
+                     style="width: 100%; height: auto;">
+            </picture>
+            <p><em>Redimensione a janela para ver diferentes versões da imagem</em></p>
+        </div>
+
+        <h2>8. Acessibilidade em Multimídia</h2>
+        <div class="exemplo">
+            <h3>Boas Práticas de Acessibilidade</h3>
+            
+            <h4>✅ Para Vídeos:</h4>
+            <ul>
+                <li>Forneça legendas para conteúdo falado</li>
+                <li>Inclua transcrições completas</li>
+                <li>Use <code>aria-label</code> ou <code>aria-describedby</code></li>
+                <li>Evite autoplay com som</li>
+                <li>Forneça controles acessíveis por teclado</li>
+            </ul>
+            
+            <h4>✅ Para Áudio:</h4>
+            <ul>
+                <li>Forneça transcrições de texto</li>
+                <li>Use indicadores visuais para áudio em reprodução</li>
+                <li>Permita controle de volume</li>
+            </ul>
+            
+            <h4>✅ Para Gráficos (SVG/Canvas):</h4>
+            <ul>
+                <li>Use <code>alt</code> text descritivo</li>
+                <li>Forneça descrições longas quando necessário</li>
+                <li>Use roles ARIA apropriados</li>
+                <li>Certifique-se de que informações importantes não dependem apenas da cor</li>
+            </ul>
+        </div>
+    </div>
+
+    <style>
+        /* Estilos adicionais para elementos de progresso */
+        progress, meter {
+            width: 100%;
+            height: 20px;
+            border: none;
+            border-radius: 10px;
+            background-color: #ecf0f1;
+            margin: 10px 0;
+        }
+        
+        progress::-webkit-progress-bar {
+            background-color: #ecf0f1;
+            border-radius: 10px;
+        }
+        
+        progress::-webkit-progress-value {
+            background: linear-gradient(90deg, #3498db, #8e44ad);
+            border-radius: 10px;
+        }
+        
+        meter {
+            background: #ecf0f1;
+        }
+        
+        meter::-webkit-meter-optimum-value {
+            background: linear-gradient(90deg, #27ae60, #2ecc71);
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Semântico</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        
+        header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+        }
+        
+        /* Navigation */
+        nav {
+            background: #2c3e50;
+            padding: 0;
+        }
+        
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            flex: 1;
+            min-width: 120px;
+        }
+        
+        nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            text-align: center;
+            transition: background 0.3s;
+        }
+        
+        nav a:hover {
+            background: #34495e;
+        }
+        
+        /* Main Content */
+        main {
+            padding: 20px;
+        }
+        
+        /* Articles and Sections */
+        article {
+            background: #fff;
+            margin-bottom: 30px;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        section {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            border-radius: 5px;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        
+        h2 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        /* Aside */
+        aside {
+            background: #ecf0f1;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        /* Figure */
+        figure {
+            text-align: center;
+            margin: 20px 0;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        figcaption {
+            font-style: italic;
+            color: #666;
+            margin-top: 10px;
+        }
+        
+        /* Details/Summary */
+        details {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        
+        summary {
+            background: #f8f9fa;
+            padding: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        summary:hover {
+            background: #e9ecef;
+        }
+        
+        details[open] summary {
+            border-bottom: 1px solid #ddd;
+        }
+        
+        details > :not(summary) {
+            padding: 15px;
+        }
+        
+        /* Time */
+        time {
+            background: #3498db;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        
+        /* Mark */
+        mark {
+            background: #f1c40f;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        
+        footer h3 {
+            color: white;
+            margin-top: 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        
+        .footer-section h4 {
+            color: #3498db;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        
+        /* Address */
+        address {
+            font-style: normal;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav li {
+                min-width: auto;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+        
+        /* Code blocks */
+        pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER: Cabeçalho da página -->
+        <header>
+            <h1>HTML5 Semântico</h1>
+            <p>Estruturando conteúdo com significado e acessibilidade</p>
+        </header>
+
+        <!-- NAV: Navegação principal -->
+        <nav>
+            <ul>
+                <li><a href="#introducao">Introdução</a></li>
+                <li><a href="#estrutura">Estrutura</a></li>
+                <li><a href="#conteudo">Conteúdo</a></li>
+                <li><a href="#formularios">Formulários</a></li>
+                <li><a href="#multimidia">Multimídia</a></li>
+            </ul>
+        </nav>
+
+        <!-- MAIN: Conteúdo principal -->
+        <main>
+            <!-- ARTICLE: Artigo sobre HTML5 Semântico -->
+            <article id="introducao">
+                <header>
+                    <h2>Introdução ao HTML5 Semântico</h2>
+                    <p>Publicado em <time datetime="2024-10-05">5 de outubro de 2024</time></p>
+                </header>
+
+                <section>
+                    <h3>O que é HTML Semântico?</h3>
+                    <p>HTML semântico é o uso de elementos HTML que possuem <mark>significado próprio</mark>, 
+                    não apenas apresentação visual. Isso melhora a acessibilidade, SEO e manutenibilidade do código.</p>
+                    
+                    <p>Alguns benefícios incluem:</p>
+                    <ul>
+                        <li><strong>Acessibilidade:</strong> Leitores de tela entendem melhor o conteúdo</li>
+                        <li><strong>SEO:</strong> Motores de busca compreendem a estrutura</li>
+                        <li><strong>Manutenção:</strong> Código mais limpo e organizados</li>
+                    </ul>
+                </section>
+
+                <aside>
+                    <h4>💡 Dica Importante</h4>
+                    <p>Sempre escolha elementos HTML baseados no <strong>significado</strong> do conteúdo, 
+                    não na aparência visual. Use CSS para estilização!</p>
+                </aside>
+            </article>
+
+            <!-- ARTICLE: Estrutura da Página -->
+            <article id="estrutura">
+                <header>
+                    <h2>Elementos de Estrutura</h2>
+                </header>
+
+                <section>
+                    <h3>Layout Principal</h3>
+                    <details>
+                        <summary>Ver código de estrutura básica</summary>
+                        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="pt"&gt;
+&lt;head&gt;
+    &lt;!-- Metadados --&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;!-- Cabeçalho da página --&gt;
+    &lt;/header&gt;
+    
+    &lt;nav&gt;
+        &lt;!-- Navegação principal --&gt;
+    &lt;/nav&gt;
+    
+    &lt;main&gt;
+        &lt;!-- Conteúdo principal --&gt;
+        &lt;article&gt;
+            &lt;!-- Artigo independente --&gt;
+        &lt;/article&gt;
+        
+        &lt;aside&gt;
+            &lt;!-- Conteúdo relacionado --&gt;
+        &lt;/aside&gt;
+    &lt;/main&gt;
+    
+    &lt;footer&gt;
+        &lt;!-- Rodapé da página --&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </details>
+                </section>
+
+                <section>
+                    <h3>Elementos de Agrupamento</h3>
+                    <p>HTML5 introduziu vários elementos para melhor organização:</p>
+                    
+                    <dl>
+                        <dt><code>&lt;header&gt;</code></dt>
+                        <dd>Cabeçalho de uma seção ou página</dd>
+                        
+                        <dt><code>&lt;nav&gt;</code></dt>
+                        <dd>Links de navegação</dd>
+                        
+                        <dt><code>&lt;main&gt;</code></dt>
+                        <dd>Conteúdo principal da página</dd>
+                        
+                        <dt><code>&lt;article&gt;</code></dt>
+                        <dd>Conteúdo independente e reutilizável</dd>
+                        
+                        <dt><code>&lt;section&gt;</code></dt>
+                        <dd>Seção temática de conteúdo</dd>
+                        
+                        <dt><code>&lt;aside&gt;</code></dt>
+                        <dd>Conteúdo relacionado ou complementar</dd>
+                        
+                        <dt><code>&lt;footer&gt;</code></dt>
+                        <dd>Rodapé de uma seção ou página</dd>
+                    </dl>
+                </section>
+            </article>
+
+            <!-- ARTICLE: Conteúdo Textual -->
+            <article id="conteudo">
+                <header>
+                    <h2>Elementos de Conteúdo</h2>
+                </header>
+
+                <section>
+                    <h3>Texto e Tipografia</h3>
+                    <p>Elementos semânticos para diferentes tipos de texto:</p>
+                    
+                    <ul>
+                        <li><code>&lt;h1&gt;</code> a <code>&lt;h6&gt;</code>: Hierarquia de títulos</li>
+                        <li><code>&lt;p&gt;</code>: Parágrafos de texto</li>
+                        <li><code>&lt;strong&gt;</code>: <strong>Texto importante</strong></li>
+                        <li><code>&lt;em&gt;</code>: <em>Texto enfatizado</em></li>
+                        <li><code>&lt;mark&gt;</code>: <mark>Texto destacado</mark></li>
+                        <li><code>&lt;small&gt;</code>: <small>Texto secundário</small></li>
+                        <li><code>&lt;del&gt;</code>: <del>Texto removido</del></li>
+                        <li><code>&lt;ins&gt;</code>: <ins>Texto inserido</ins></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Citações e Referências</h3>
+                    <blockquote cite="https://www.w3.org/html/">
+                        <p>"HTML é a linguagem de marcação padrão para criar páginas web."</p>
+                        <footer>— <cite>W3C HTML Specification</cite></footer>
+                    </blockquote>
+                    
+                    <p>Para citações inline: <q>HTML semântico melhora a acessibilidade</q>.</p>
+                </section>
+
+                <section>
+                    <h3>Código e Elementos Técnicos</h3>
+                    <p>Para documentação técnica:</p>
+                    <ul>
+                        <li><code>&lt;code&gt;</code>: Código inline como <code>console.log()</code></li>
+                        <li><code>&lt;pre&gt;</code>: Texto pré-formatado</li>
+                        <li><code>&lt;kbd&gt;</code>: Entrada do teclado como <kbd>Ctrl+C</kbd></li>
+                        <li><code>&lt;samp&gt;</code>: Saída de programa como <samp>Error 404</samp></li>
+                        <li><code>&lt;var&gt;</code>: Variáveis matemáticas como <var>x = y + 2</var></li>
+                    </ul>
+                </section>
+            </article>
+
+            <!-- SECTION: Multimídia -->
+            <section id="multimidia">
+                <h2>Elementos Multimídia</h2>
+                
+                <article>
+                    <h3>Imagens Semânticas</h3>
+                    <figure>
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect width='400' height='200' fill='%233498db'/%3E%3Ctext x='200' y='100' text-anchor='middle' fill='white' font-size='16'%3EEstrutura HTML5%3C/text%3E%3C/svg%3E" 
+                             alt="Diagrama da estrutura HTML5 semântica"
+                             style="max-width: 100%; height: auto; border-radius: 8px;">
+                        <figcaption>
+                            <strong>Figura 1:</strong> Representação visual da estrutura semântica do HTML5
+                        </figcaption>
+                    </figure>
+                </article>
+
+                <article>
+                    <h3>Dados Temporais</h3>
+                    <p>Use o elemento <code>&lt;time&gt;</code> para datas:</p>
+                    <ul>
+                        <li>Artigo publicado em <time datetime="2024-10-05">5 de outubro de 2024</time></li>
+                        <li>Evento acontece em <time datetime="2024-12-25T20:00">25 de dezembro às 20:00</time></li>
+                        <li>Duração: <time datetime="PT2H30M">2 horas e 30 minutos</time></li>
+                    </ul>
+                </article>
+
+                <article>
+                    <h3>Detalhes Expandíveis</h3>
+                    <details>
+                        <summary>🎯 Benefícios do HTML Semântico</summary>
+                        <ul>
+                            <li><strong>Acessibilidade:</strong> Melhora a navegação com leitores de tela</li>
+                            <li><strong>SEO:</strong> Motores de busca entendem melhor o conteúdo</li>
+                            <li><strong>Manutenibilidade:</strong> Código mais fácil de entender e modificar</li>
+                            <li><strong>Performance:</strong> Carregamento mais eficiente</li>
+                        </ul>
+                    </details>
+                    
+                    <details>
+                        <summary>📱 Responsividade</summary>
+                        <p>HTML semântico facilita a criação de layouts responsivos, 
+                        pois a estrutura lógica se adapta melhor a diferentes dispositivos.</p>
+                    </details>
+                </article>
+            </section>
+        </main>
+
+        <!-- FOOTER: Rodapé da página -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Sobre este Tutorial</h4>
+                    <p>Este exemplo demonstra o uso correto de elementos HTML5 semânticos 
+                    para criar páginas web mais acessíveis e bem estruturadas.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Recursos Adicionais</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>📖 <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML" style="color: #3498db;">MDN HTML</a></li>
+                        <li>🎯 <a href="https://www.w3.org/html/" style="color: #3498db;">W3C HTML</a></li>
+                        <li>♿ <a href="https://www.w3.org/WAI/" style="color: #3498db;">Web Accessibility</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <address>
+                        <strong>Equipe de Desenvolvimento</strong><br>
+                        Email: <a href="mailto:contato@exemplo.com" style="color: #3498db;">contato@exemplo.com</a><br>
+                        Telefone: <a href="tel:+351123456789" style="color: #3498db;">+351 123 456 789</a>
+                    </address>
+                </div>
+            </div>
+            
+            <hr style="margin: 30px 0; border: none; height: 1px; background: #34495e;">
+            <p>&copy; 2024 Tutorial HTML5 Semântico. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+</body>
+</html>

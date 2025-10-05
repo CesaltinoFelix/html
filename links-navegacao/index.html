@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links e Navegação</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1 { color: #2c3e50; text-align: center; }
+        h2 { color: #34495e; border-bottom: 2px solid #e74c3c; padding-bottom: 5px; }
+        .exemplo {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid #e74c3c;
+            border-radius: 5px;
+        }
+        nav {
+            background: #34495e;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        nav a:hover {
+            background: #2c3e50;
+        }
+        .link-externo { color: #e74c3c; }
+        .link-interno { color: #3498db; }
+        .link-email { color: #27ae60; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Links e Navegação em HTML</h1>
+        
+        <nav>
+            <ul>
+                <li><a href="#links-basicos">Links Básicos</a></li>
+                <li><a href="#links-externos">Links Externos</a></li>
+                <li><a href="#links-internos">Links Internos</a></li>
+                <li><a href="#outros-tipos">Outros Tipos</a></li>
+            </ul>
+        </nav>
+
+        <h2 id="links-basicos">1. Links Básicos</h2>
+        <div class="exemplo">
+            <p><strong>Link simples:</strong></p>
+            <p><a href="pagina2.html" class="link-interno">Ir para Página 2</a></p>
+            
+            <p><strong>Link com título (tooltip):</strong></p>
+            <p><a href="contato.html" title="Entre em contato conosco" class="link-interno">Contato</a></p>
+            
+            <p><strong>Link que abre em nova aba:</strong></p>
+            <p><a href="https://www.google.com" target="_blank" class="link-externo">Google (nova aba)</a></p>
+        </div>
+
+        <h2 id="links-externos">2. Links Externos</h2>
+        <div class="exemplo">
+            <p><strong>Sites úteis para desenvolvedores:</strong></p>
+            <ul>
+                <li><a href="https://developer.mozilla.org" target="_blank" class="link-externo">MDN Web Docs</a></li>
+                <li><a href="https://www.w3schools.com" target="_blank" class="link-externo">W3Schools</a></li>
+                <li><a href="https://github.com" target="_blank" class="link-externo">GitHub</a></li>
+                <li><a href="https://stackoverflow.com" target="_blank" class="link-externo">Stack Overflow</a></li>
+            </ul>
+        </div>
+
+        <h2 id="links-internos">3. Links Internos (Âncoras)</h2>
+        <div class="exemplo">
+            <p><strong>Navegação dentro da página:</strong></p>
+            <ul>
+                <li><a href="#topo" class="link-interno">Ir para o topo</a></li>
+                <li><a href="#links-basicos" class="link-interno">Ver Links Básicos</a></li>
+                <li><a href="#outros-tipos" class="link-interno">Pular para Outros Tipos</a></li>
+            </ul>
+        </div>
+
+        <h2 id="outros-tipos">4. Outros Tipos de Links</h2>
+        <div class="exemplo">
+            <p><strong>Link para email:</strong></p>
+            <p><a href="mailto:exemplo@email.com" class="link-email">Enviar Email</a></p>
+            
+            <p><strong>Link para telefone:</strong></p>
+            <p><a href="tel:+351123456789">Ligar: +351 123 456 789</a></p>
+            
+            <p><strong>Link para download:</strong></p>
+            <p><a href="documento.pdf" download>Baixar Documento PDF</a></p>
+            
+            <p><strong>Link desabilitado (sem href):</strong></p>
+            <p><a>Link Inativo</a></p>
+        </div>
+
+        <h2>5. Botões como Links</h2>
+        <div class="exemplo">
+            <p><strong>Botões estilizados:</strong></p>
+            <p>
+                <a href="sobre.html" style="background: #3498db; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Sobre Nós</a>
+                <a href="servicos.html" style="background: #27ae60; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-left: 10px;">Serviços</a>
+            </p>
+        </div>
+
+        <h2>6. Links com Imagens</h2>
+        <div class="exemplo">
+            <p><strong>Imagem como link:</strong></p>
+            <a href="https://www.exemplo.com" target="_blank">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='50'%3E%3Crect width='100' height='50' fill='%233498db'/%3E%3Ctext x='50' y='30' text-anchor='middle' fill='white'%3EClique aqui%3C/text%3E%3C/svg%3E" alt="Clique aqui">
+            </a>
+        </div>
+
+        <h2>7. Menu de Navegação Completo</h2>
+        <div class="exemplo">
+            <nav style="background: #2c3e50; padding: 0;">
+                <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap;">
+                    <li><a href="index.html" style="display: block; padding: 15px 20px; color: white; text-decoration: none;">Início</a></li>
+                    <li><a href="sobre.html" style="display: block; padding: 15px 20px; color: white; text-decoration: none;">Sobre</a></li>
+                    <li><a href="produtos.html" style="display: block; padding: 15px 20px; color: white; text-decoration: none;">Produtos</a></li>
+                    <li><a href="servicos.html" style="display: block; padding: 15px 20px; color: white; text-decoration: none;">Serviços</a></li>
+                    <li><a href="contato.html" style="display: block; padding: 15px 20px; color: white; text-decoration: none;">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div id="topo"></div>
+        <h2>8. Breadcrumbs (Navegação Estrutural)</h2>
+        <div class="exemplo">
+            <p><strong>Caminho de navegação:</strong></p>
+            <nav>
+                <a href="index.html">Início</a> > 
+                <a href="tutoriais.html">Tutoriais</a> > 
+                <a href="html.html">HTML</a> > 
+                <span>Links e Navegação</span>
+            </nav>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulários em HTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f9;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1 { 
+            color: #2c3e50; 
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 { 
+            color: #34495e; 
+            border-bottom: 2px solid #27ae60; 
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+        .exemplo {
+            background: #f8f9fa;
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 4px solid #27ae60;
+            border-radius: 5px;
+        }
+        
+        /* Estilos para formulários */
+        .form-grupo {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="tel"],
+        input[type="url"],
+        input[type="number"],
+        input[type="date"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+        
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #27ae60;
+            box-shadow: 0 0 5px rgba(39, 174, 96, 0.3);
+        }
+        
+        button {
+            background: #27ae60;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #229954;
+        }
+        
+        button.secundario {
+            background: #95a5a6;
+        }
+        
+        button.secundario:hover {
+            background: #7f8c8d;
+        }
+        
+        .checkbox-grupo,
+        .radio-grupo {
+            margin: 15px 0;
+        }
+        
+        .checkbox-grupo input,
+        .radio-grupo input {
+            width: auto;
+            margin-right: 8px;
+        }
+        
+        .form-linha {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .form-linha .form-grupo {
+            flex: 1;
+        }
+        
+        .obrigatorio {
+            color: #e74c3c;
+        }
+        
+        .ajuda {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+        
+        .formulario-estilizado {
+            max-width: 500px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        @media (max-width: 600px) {
+            .form-linha {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Formulários em HTML</h1>
+
+        <h2>1. Formulário Básico</h2>
+        <div class="exemplo">
+            <p><strong>Elementos fundamentais de um formulário:</strong></p>
+            <form action="#" method="post">
+                <div class="form-grupo">
+                    <label for="nome">Nome Completo <span class="obrigatorio">*</span></label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                
+                <div class="form-grupo">
+                    <label for="email">E-mail <span class="obrigatorio">*</span></label>
+                    <input type="email" id="email" name="email" required>
+                    <div class="ajuda">Usaremos seu e-mail para entrar em contato</div>
+                </div>
+                
+                <div class="form-grupo">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" name="mensagem" rows="4" placeholder="Digite sua mensagem aqui..."></textarea>
+                </div>
+                
+                <button type="submit">Enviar</button>
+                <button type="reset" class="secundario">Limpar</button>
+            </form>
+        </div>
+
+        <h2>2. Tipos de Campos de Entrada</h2>
+        <div class="exemplo">
+            <form action="#" method="post">
+                <div class="form-linha">
+                    <div class="form-grupo">
+                        <label for="texto">Texto Simples</label>
+                        <input type="text" id="texto" name="texto" placeholder="Digite aqui">
+                    </div>
+                    
+                    <div class="form-grupo">
+                        <label for="senha">Senha</label>
+                        <input type="password" id="senha" name="senha">
+                    </div>
+                </div>
+                
+                <div class="form-linha">
+                    <div class="form-grupo">
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" id="telefone" name="telefone" placeholder="+351 123 456 789">
+                    </div>
+                    
+                    <div class="form-grupo">
+                        <label for="numero">Número</label>
+                        <input type="number" id="numero" name="numero" min="1" max="100" step="5">
+                    </div>
+                </div>
+                
+                <div class="form-linha">
+                    <div class="form-grupo">
+                        <label for="data">Data</label>
+                        <input type="date" id="data" name="data">
+                    </div>
+                    
+                    <div class="form-grupo">
+                        <label for="site">Website</label>
+                        <input type="url" id="site" name="site" placeholder="https://exemplo.com">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <h2>3. Seleções e Escolhas</h2>
+        <div class="exemplo">
+            <form action="#" method="post">
+                <div class="form-grupo">
+                    <label for="pais">País</label>
+                    <select id="pais" name="pais">
+                        <option value="">Selecione um país</option>
+                        <option value="pt">Portugal</option>
+                        <option value="br">Brasil</option>
+                        <option value="es">Espanha</option>
+                        <option value="fr">França</option>
+                    </select>
+                </div>
+                
+                <div class="form-grupo">
+                    <label>Gênero</label>
+                    <div class="radio-grupo">
+                        <label><input type="radio" name="genero" value="masculino"> Masculino</label>
+                        <label><input type="radio" name="genero" value="feminino"> Feminino</label>
+                        <label><input type="radio" name="genero" value="outro"> Outro</label>
+                        <label><input type="radio" name="genero" value="nao-informar"> Prefiro não informar</label>
+                    </div>
+                </div>
+                
+                <div class="form-grupo">
+                    <label>Interesses (marque quantos quiser)</label>
+                    <div class="checkbox-grupo">
+                        <label><input type="checkbox" name="interesses[]" value="tecnologia"> Tecnologia</label>
+                        <label><input type="checkbox" name="interesses[]" value="esportes"> Esportes</label>
+                        <label><input type="checkbox" name="interesses[]" value="musica"> Música</label>
+                        <label><input type="checkbox" name="interesses[]" value="viagem"> Viagens</label>
+                        <label><input type="checkbox" name="interesses[]" value="culinaria"> Culinária</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <h2>4. Formulário de Cadastro Completo</h2>
+        <div class="exemplo">
+            <div class="formulario-estilizado">
+                <h3>Criar Conta</h3>
+                <form action="#" method="post">
+                    <div class="form-grupo">
+                        <label for="usuario">Nome de Usuário <span class="obrigatorio">*</span></label>
+                        <input type="text" id="usuario" name="usuario" required minlength="3" maxlength="20">
+                        <div class="ajuda">Entre 3 e 20 caracteres</div>
+                    </div>
+                    
+                    <div class="form-linha">
+                        <div class="form-grupo">
+                            <label for="nome-cadastro">Nome <span class="obrigatorio">*</span></label>
+                            <input type="text" id="nome-cadastro" name="nome" required>
+                        </div>
+                        
+                        <div class="form-grupo">
+                            <label for="sobrenome">Sobrenome <span class="obrigatorio">*</span></label>
+                            <input type="text" id="sobrenome" name="sobrenome" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-grupo">
+                        <label for="email-cadastro">E-mail <span class="obrigatorio">*</span></label>
+                        <input type="email" id="email-cadastro" name="email" required>
+                    </div>
+                    
+                    <div class="form-linha">
+                        <div class="form-grupo">
+                            <label for="senha-cadastro">Senha <span class="obrigatorio">*</span></label>
+                            <input type="password" id="senha-cadastro" name="senha" required minlength="8">
+                        </div>
+                        
+                        <div class="form-grupo">
+                            <label for="confirmar-senha">Confirmar Senha <span class="obrigatorio">*</span></label>
+                            <input type="password" id="confirmar-senha" name="confirmar_senha" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-grupo">
+                        <label for="nascimento">Data de Nascimento</label>
+                        <input type="date" id="nascimento" name="nascimento">
+                    </div>
+                    
+                    <div class="checkbox-grupo">
+                        <label>
+                            <input type="checkbox" name="termos" value="aceito" required>
+                            Aceito os <a href="#">termos de uso</a> <span class="obrigatorio">*</span>
+                        </label>
+                    </div>
+                    
+                    <div class="checkbox-grupo">
+                        <label>
+                            <input type="checkbox" name="newsletter" value="sim">
+                            Desejo receber novidades por e-mail
+                        </label>
+                    </div>
+                    
+                    <button type="submit">Criar Conta</button>
+                </form>
+            </div>
+        </div>
+
+        <h2>5. Formulário de Contato Avançado</h2>
+        <div class="exemplo">
+            <form action="#" method="post">
+                <div class="form-linha">
+                    <div class="form-grupo">
+                        <label for="nome-contato">Nome <span class="obrigatorio">*</span></label>
+                        <input type="text" id="nome-contato" name="nome" required>
+                    </div>
+                    
+                    <div class="form-grupo">
+                        <label for="empresa">Empresa</label>
+                        <input type="text" id="empresa" name="empresa">
+                    </div>
+                </div>
+                
+                <div class="form-linha">
+                    <div class="form-grupo">
+                        <label for="email-contato">E-mail <span class="obrigatorio">*</span></label>
+                        <input type="email" id="email-contato" name="email" required>
+                    </div>
+                    
+                    <div class="form-grupo">
+                        <label for="telefone-contato">Telefone</label>
+                        <input type="tel" id="telefone-contato" name="telefone">
+                    </div>
+                </div>
+                
+                <div class="form-grupo">
+                    <label for="assunto">Assunto <span class="obrigatorio">*</span></label>
+                    <select id="assunto" name="assunto" required>
+                        <option value="">Selecione um assunto</option>
+                        <option value="vendas">Vendas</option>
+                        <option value="suporte">Suporte Técnico</option>
+                        <option value="parceria">Parceria</option>
+                        <option value="outros">Outros</option>
+                    </select>
+                </div>
+                
+                <div class="form-grupo">
+                    <label for="prioridade">Prioridade</label>
+                    <div class="radio-grupo">
+                        <label><input type="radio" name="prioridade" value="baixa" checked> Baixa</label>
+                        <label><input type="radio" name="prioridade" value="media"> Média</label>
+                        <label><input type="radio" name="prioridade" value="alta"> Alta</label>
+                        <label><input type="radio" name="prioridade" value="urgente"> Urgente</label>
+                    </div>
+                </div>
+                
+                <div class="form-grupo">
+                    <label for="mensagem-contato">Mensagem <span class="obrigatorio">*</span></label>
+                    <textarea id="mensagem-contato" name="mensagem" rows="6" required placeholder="Descreva detalhadamente sua solicitação..."></textarea>
+                </div>
+                
+                <div class="form-grupo">
+                    <label for="arquivo">Anexar Arquivo</label>
+                    <input type="file" id="arquivo" name="arquivo" accept=".pdf,.doc,.docx,.jpg,.png">
+                    <div class="ajuda">Formatos aceitos: PDF, DOC, DOCX, JPG, PNG (máx. 5MB)</div>
+                </div>
+                
+                <button type="submit">Enviar Mensagem</button>
+                <button type="reset" class="secundario">Limpar Formulário</button>
+            </form>
+        </div>
+
+        <h2>6. Validações e Atributos HTML5</h2>
+        <div class="exemplo">
+            <form action="#" method="post">
+                <div class="form-grupo">
+                    <label for="email-validacao">E-mail com validação automática</label>
+                    <input type="email" id="email-validacao" name="email" required>
+                </div>
+                
+                <div class="form-grupo">
+                    <label for="url-validacao">URL válida</label>
+                    <input type="url" id="url-validacao" name="url" placeholder="https://exemplo.com">
+                </div>
+                
+                <div class="form-grupo">
+                    <label for="numero-validacao">Número entre 10 e 50</label>
+                    <input type="number" id="numero-validacao" name="numero" min="10" max="50" step="5">
+                </div>
+                
+                <div class="form-grupo">
+                    <label for="texto-validacao">Texto (mín. 5, máx. 20 caracteres)</label>
+                    <input type="text" id="texto-validacao" name="texto" minlength="5" maxlength="20" pattern="[A-Za-z\s]+">
+                    <div class="ajuda">Apenas letras e espaços</div>
+                </div>
+                
+                <div class="form-grupo">
+                    <label for="data-validacao">Data (não pode ser no passado)</label>
+                    <input type="date" id="data-validacao" name="data" min="2024-01-01">
+                </div>
+                
+                <button type="submit">Testar Validações</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

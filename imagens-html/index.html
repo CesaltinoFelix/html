@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagens em HTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1 { 
+            color: #2c3e50; 
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 { 
+            color: #34495e; 
+            border-bottom: 2px solid #9b59b6; 
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+        .exemplo {
+            background: #fafafa;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid #9b59b6;
+            border-radius: 5px;
+        }
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .card-imagem {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .responsive { max-width: 100%; height: auto; }
+        .thumbnail { width: 150px; height: 100px; object-fit: cover; }
+        .circular { border-radius: 50%; width: 100px; height: 100px; object-fit: cover; }
+        code {
+            background: #f8f8f8;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Trabalhando com Imagens em HTML</h1>
+
+        <h2>1. Imagem Básica</h2>
+        <div class="exemplo">
+            <p><strong>Sintaxe básica:</strong></p>
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect width='300' height='200' fill='%233498db'/%3E%3Ctext x='150' y='100' text-anchor='middle' fill='white' font-size='16'%3EImagem Exemplo%3C/text%3E%3C/svg%3E" 
+                 alt="Imagem de exemplo" 
+                 class="responsive">
+            <p><code>&lt;img src="imagem.jpg" alt="Descrição da imagem"&gt;</code></p>
+        </div>
+
+        <h2>2. Atributos Importantes</h2>
+        <div class="exemplo">
+            <h3>Imagem com título (tooltip)</h3>
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='150'%3E%3Crect width='250' height='150' fill='%2327ae60'/%3E%3Ctext x='125' y='75' text-anchor='middle' fill='white' font-size='14'%3EPasse o mouse aqui%3C/text%3E%3C/svg%3E" 
+                 alt="Imagem com tooltip" 
+                 title="Esta é uma imagem com título explicativo"
+                 class="responsive">
+            
+            <h3>Imagem com dimensões específicas</h3>
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='100'%3E%3Crect width='200' height='100' fill='%23e74c3c'/%3E%3Ctext x='100' y='50' text-anchor='middle' fill='white' font-size='12'%3E200x100px%3C/text%3E%3C/svg%3E" 
+                 alt="Imagem redimensionada" 
+                 width="200" 
+                 height="100">
+        </div>
+
+        <h2>3. Imagens Responsivas</h2>
+        <div class="exemplo">
+            <h3>Imagem que se adapta ao container</h3>
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect width='400' height='200' fill='%23f39c12'/%3E%3Ctext x='200' y='100' text-anchor='middle' fill='white' font-size='16'%3EImagem Responsiva%3C/text%3E%3C/svg%3E" 
+                 alt="Imagem responsiva" 
+                 class="responsive">
+            <p><em>Esta imagem se redimensiona conforme o tamanho da tela</em></p>
+        </div>
+
+        <h2>4. Diferentes Formatos e Estilos</h2>
+        <div class="galeria">
+            <div class="card-imagem">
+                <h4>Thumbnail</h4>
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='100'%3E%3Crect width='150' height='100' fill='%23ff6b6b'/%3E%3Ctext x='75' y='50' text-anchor='middle' fill='white' font-size='10'%3EThumbnail%3C/text%3E%3C/svg%3E" 
+                     alt="Imagem em miniatura" 
+                     class="thumbnail">
+            </div>
+            
+            <div class="card-imagem">
+                <h4>Imagem Circular</h4>
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%234ecdc4'/%3E%3Ctext x='50' y='55' text-anchor='middle' fill='white' font-size='10'%3ECircular%3C/text%3E%3C/svg%3E" 
+                     alt="Imagem circular" 
+                     class="circular">
+            </div>
+            
+            <div class="card-imagem">
+                <h4>Com Borda</h4>
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Crect width='120' height='120' fill='%23a8e6cf' stroke='%23333' stroke-width='3'/%3E%3Ctext x='60' y='65' text-anchor='middle' fill='%23333' font-size='10'%3ECom Borda%3C/text%3E%3C/svg%3E" 
+                     alt="Imagem com borda" 
+                     style="border: 3px solid #333; width: 120px; height: 120px;">
+            </div>
+        </div>
+
+        <h2>5. Imagem como Link</h2>
+        <div class="exemplo">
+            <p><strong>Imagem clicável:</strong></p>
+            <a href="https://www.exemplo.com" target="_blank">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='100'%3E%3Crect width='200' height='100' fill='%23667292'/%3E%3Ctext x='100' y='50' text-anchor='middle' fill='white' font-size='12'%3EClique na imagem%3C/text%3E%3C/svg%3E" 
+                     alt="Imagem clicável" 
+                     style="cursor: pointer; transition: opacity 0.3s;"
+                     onmouseover="this.style.opacity='0.8'"
+                     onmouseout="this.style.opacity='1'">
+            </a>
+        </div>
+
+        <h2>6. Galeria de Imagens</h2>
+        <div class="exemplo">
+            <div class="galeria">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150'%3E%3Crect width='200' height='150' fill='%23ff9ff3'/%3E%3Ctext x='100' y='75' text-anchor='middle' fill='white' font-size='12'%3EFoto 1%3C/text%3E%3C/svg%3E" alt="Foto 1" class="responsive">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150'%3E%3Crect width='200' height='150' fill='%23f368e0'/%3E%3Ctext x='100' y='75' text-anchor='middle' fill='white' font-size='12'%3EFoto 2%3C/text%3E%3C/svg%3E" alt="Foto 2" class="responsive">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150'%3E%3Crect width='200' height='150' fill='%23ff6b9d'/%3E%3Ctext x='100' y='75' text-anchor='middle' fill='white' font-size='12'%3EFoto 3%3C/text%3E%3C/svg%3E" alt="Foto 3" class="responsive">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150'%3E%3Crect width='200' height='150' fill='%23c44569'/%3E%3Ctext x='100' y='75' text-anchor='middle' fill='white' font-size='12'%3EFoto 4%3C/text%3E%3C/svg%3E" alt="Foto 4" class="responsive">
+            </div>
+        </div>
+
+        <h2>7. Figura com Legenda</h2>
+        <div class="exemplo">
+            <figure style="text-align: center; margin: 20px 0;">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect width='300' height='200' fill='%236c5ce7'/%3E%3Ctext x='150' y='90' text-anchor='middle' fill='white' font-size='14'%3EGráfico de Vendas%3C/text%3E%3Ctext x='150' y='110' text-anchor='middle' fill='white' font-size='12'%3E2024%3C/text%3E%3C/svg%3E" 
+                     alt="Gráfico de vendas do ano 2024" 
+                     class="responsive">
+                <figcaption style="margin-top: 10px; font-style: italic; color: #666;">
+                    <strong>Figura 1:</strong> Gráfico de vendas mensais do ano 2024
+                </figcaption>
+            </figure>
+        </div>
+
+        <h2>8. Imagem de Fundo (usando CSS)</h2>
+        <div class="exemplo">
+            <div style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\'%3E%3Cpattern id=\'pattern\' width=\'20\' height=\'20\' patternUnits=\'userSpaceOnUse\'%3E%3Ccircle cx=\'10\' cy=\'10\' r=\'3\' fill=\'%23ddd\'/%3E%3C/pattern%3E%3Crect width=\'100\' height=\'100\' fill=\'url(%23pattern)\'/%3E%3C/svg%3E'); 
+                        background-size: cover; 
+                        background-position: center; 
+                        padding: 40px; 
+                        text-align: center; 
+                        color: #333; 
+                        border-radius: 10px;">
+                <h3>Texto sobre imagem de fundo</h3>
+                <p>Este conteúdo está sobre uma imagem de fundo</p>
+            </div>
+        </div>
+
+        <h2>9. Imagens Lazy Loading</h2>
+        <div class="exemplo">
+            <p><strong>Carregamento otimizado:</strong></p>
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect width='300' height='200' fill='%2300d2d3'/%3E%3Ctext x='150' y='100' text-anchor='middle' fill='white' font-size='14'%3ELazy Loading%3C/text%3E%3C/svg%3E" 
+                 alt="Imagem com lazy loading" 
+                 loading="lazy" 
+                 class="responsive">
+            <p><code>loading="lazy"</code> - Carrega apenas quando necessário</p>
+        </div>
+    </div>
+</body>
+</html>

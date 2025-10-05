@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelas em HTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1 { 
+            color: #2c3e50; 
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 { 
+            color: #34495e; 
+            border-bottom: 2px solid #e67e22; 
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+        .exemplo {
+            background: #fafafa;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid #e67e22;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        
+        /* Estilos para tabelas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .tabela-basica {
+            border: 1px solid #ddd;
+        }
+        .tabela-basica th,
+        .tabela-basica td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        .tabela-basica th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        .tabela-basica tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .tabela-basica tr:hover {
+            background-color: #e8f4fd;
+        }
+        
+        .tabela-estilizada {
+            border: none;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .tabela-estilizada th {
+            background: linear-gradient(45deg, #667292, #3c4858);
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .tabela-estilizada td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .tabela-estilizada tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .tabela-responsiva {
+            font-size: 14px;
+        }
+        @media (max-width: 600px) {
+            .tabela-responsiva {
+                font-size: 12px;
+            }
+        }
+        
+        .destaque { 
+            background-color: #fff3cd !important; 
+            font-weight: bold;
+        }
+        .positivo { color: #27ae60; font-weight: bold; }
+        .negativo { color: #e74c3c; font-weight: bold; }
+        
+        code {
+            background: #f8f8f8;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tabelas em HTML</h1>
+
+        <h2>1. Tabela Básica</h2>
+        <div class="exemplo">
+            <p><strong>Estrutura fundamental de uma tabela:</strong></p>
+            <table class="tabela-basica">
+                <tr>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>Cidade</th>
+                </tr>
+                <tr>
+                    <td>João Silva</td>
+                    <td>28</td>
+                    <td>Lisboa</td>
+                </tr>
+                <tr>
+                    <td>Maria Santos</td>
+                    <td>35</td>
+                    <td>Porto</td>
+                </tr>
+                <tr>
+                    <td>Pedro Costa</td>
+                    <td>42</td>
+                    <td>Coimbra</td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>2. Tabela com Header, Body e Footer</h2>
+        <div class="exemplo">
+            <p><strong>Estrutura semântica completa:</strong></p>
+            <table class="tabela-estilizada">
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Quantidade</th>
+                        <th>Preço Unitário</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Notebook</td>
+                        <td>2</td>
+                        <td>€800</td>
+                        <td class="positivo">€1.600</td>
+                    </tr>
+                    <tr>
+                        <td>Mouse</td>
+                        <td>5</td>
+                        <td>€25</td>
+                        <td class="positivo">€125</td>
+                    </tr>
+                    <tr>
+                        <td>Teclado</td>
+                        <td>3</td>
+                        <td>€50</td>
+                        <td class="positivo">€150</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr class="destaque">
+                        <td colspan="3"><strong>Total Geral</strong></td>
+                        <td><strong>€1.875</strong></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <h2>3. Tabela com Colspan e Rowspan</h2>
+        <div class="exemplo">
+            <p><strong>Células que ocupam múltiplas colunas/linhas:</strong></p>
+            <table class="tabela-basica">
+                <tr>
+                    <th colspan="3">Relatório de Vendas - Q1 2024</th>
+                </tr>
+                <tr>
+                    <th>Mês</th>
+                    <th>Vendas</th>
+                    <th>Meta</th>
+                </tr>
+                <tr>
+                    <td rowspan="3">Trimestre 1</td>
+                    <td>Janeiro: €50.000</td>
+                    <td class="positivo">✓ Atingida</td>
+                </tr>
+                <tr>
+                    <td>Fevereiro: €45.000</td>
+                    <td class="negativo">✗ Não atingida</td>
+                </tr>
+                <tr>
+                    <td>Março: €60.000</td>
+                    <td class="positivo">✓ Superada</td>
+                </tr>
+                <tr class="destaque">
+                    <td colspan="2"><strong>Total do Trimestre</strong></td>
+                    <td><strong>€155.000</strong></td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>4. Tabela de Horários</h2>
+        <div class="exemplo">
+            <p><strong>Exemplo prático - Grade de horários:</strong></p>
+            <table class="tabela-basica">
+                <thead>
+                    <tr>
+                        <th>Horário</th>
+                        <th>Segunda</th>
+                        <th>Terça</th>
+                        <th>Quarta</th>
+                        <th>Quinta</th>
+                        <th>Sexta</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>08:00-09:00</strong></td>
+                        <td>Matemática</td>
+                        <td>Português</td>
+                        <td>História</td>
+                        <td>Inglês</td>
+                        <td>Geografia</td>
+                    </tr>
+                    <tr>
+                        <td><strong>09:00-10:00</strong></td>
+                        <td>Física</td>
+                        <td>Química</td>
+                        <td>Biologia</td>
+                        <td>Matemática</td>
+                        <td>Português</td>
+                    </tr>
+                    <tr class="destaque">
+                        <td><strong>10:00-10:20</strong></td>
+                        <td colspan="5" style="text-align: center;"><em>INTERVALO</em></td>
+                    </tr>
+                    <tr>
+                        <td><strong>10:20-11:20</strong></td>
+                        <td>Educação Física</td>
+                        <td>Arte</td>
+                        <td>Música</td>
+                        <td>Filosofia</td>
+                        <td>Sociologia</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>5. Tabela Responsiva</h2>
+        <div class="exemplo">
+            <p><strong>Tabela que se adapta a telas pequenas:</strong></p>
+            <div style="overflow-x: auto;">
+                <table class="tabela-responsiva tabela-basica">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome do Cliente</th>
+                            <th>Email</th>
+                            <th>Telefone</th>
+                            <th>Cidade</th>
+                            <th>Status</th>
+                            <th>Data Cadastro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>Ana Rodrigues</td>
+                            <td>ana@email.com</td>
+                            <td>+351 123 456 789</td>
+                            <td>Lisboa</td>
+                            <td class="positivo">Ativo</td>
+                            <td>15/03/2024</td>
+                        </tr>
+                        <tr>
+                            <td>002</td>
+                            <td>Carlos Fernandes</td>
+                            <td>carlos@email.com</td>
+                            <td>+351 987 654 321</td>
+                            <td>Porto</td>
+                            <td class="negativo">Inativo</td>
+                            <td>22/02/2024</td>
+                        </tr>
+                        <tr>
+                            <td>003</td>
+                            <td>Sofia Pereira</td>
+                            <td>sofia@email.com</td>
+                            <td>+351 555 444 333</td>
+                            <td>Braga</td>
+                            <td class="positivo">Ativo</td>
+                            <td>08/04/2024</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p><em>Role horizontalmente em telas pequenas para ver todo o conteúdo</em></p>
+        </div>
+
+        <h2>6. Tabela com Caption e Scope</h2>
+        <div class="exemplo">
+            <p><strong>Melhor acessibilidade e semântica:</strong></p>
+            <table class="tabela-basica">
+                <caption style="font-size: 1.1em; font-weight: bold; margin-bottom: 10px; color: #2c3e50;">
+                    Comparação de Planos de Internet
+                </caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Plano</th>
+                        <th scope="col">Velocidade</th>
+                        <th scope="col">Preço</th>
+                        <th scope="col">Instalação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Básico</th>
+                        <td>50 Mbps</td>
+                        <td>€25/mês</td>
+                        <td>Grátis</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Intermediário</th>
+                        <td>100 Mbps</td>
+                        <td>€35/mês</td>
+                        <td>Grátis</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Premium</th>
+                        <td>200 Mbps</td>
+                        <td>€50/mês</td>
+                        <td>Grátis</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>7. Tabela de Dados Financeiros</h2>
+        <div class="exemplo">
+            <p><strong>Exemplo com dados numéricos formatados:</strong></p>
+            <table class="tabela-estilizada">
+                <thead>
+                    <tr>
+                        <th>Empresa</th>
+                        <th>Receita 2023</th>
+                        <th>Receita 2024</th>
+                        <th>Crescimento</th>
+                        <th>Market Share</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>TechCorp</strong></td>
+                        <td>€1.2M</td>
+                        <td>€1.8M</td>
+                        <td class="positivo">+50%</td>
+                        <td>25%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>InnovaSoft</strong></td>
+                        <td>€800K</td>
+                        <td>€750K</td>
+                        <td class="negativo">-6.25%</td>
+                        <td>18%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>DataPlus</strong></td>
+                        <td>€2.1M</td>
+                        <td>€2.7M</td>
+                        <td class="positivo">+28.6%</td>
+                        <td>35%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>8. Boas Práticas</h2>
+        <div class="exemplo">
+            <ul>
+                <li><code>&lt;table&gt;</code> - Container principal</li>
+                <li><code>&lt;thead&gt;</code> - Cabeçalho da tabela</li>
+                <li><code>&lt;tbody&gt;</code> - Corpo principal dos dados</li>
+                <li><code>&lt;tfoot&gt;</code> - Rodapé (totais, resumos)</li>
+                <li><code>&lt;th&gt;</code> - Células de cabeçalho</li>
+                <li><code>&lt;td&gt;</code> - Células de dados</li>
+                <li><code>&lt;caption&gt;</code> - Título/descrição da tabela</li>
+                <li><code>scope="col|row"</code> - Melhora acessibilidade</li>
+                <li><code>colspan</code> - Células que ocupam múltiplas colunas</li>
+                <li><code>rowspan</code> - Células que ocupam múltiplas linhas</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
