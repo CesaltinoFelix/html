@@ -1,0 +1,16 @@
+p {
+  background-color: aqua;
+  /* padding para cima */
+  padding-top: 30px;
+  /* padding para baixo */
+  padding-bottom: 50px;
+  /* padding para esquerda */
+  /* padding-left: 0px; */
+
+  /* padding para direita */
+  /* padding-right: 0px; */
+}
+
+button {
+  padding: 10px;
+}

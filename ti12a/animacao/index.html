@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animacao</title>
+    <style>
+      * {
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        width: 300px;
+        height: 300px;
+        /* background: linear-gradient(#04be04, #73f473, #b3eab3); */
+        background: red;
+      }
+
+      .container:hover {
+        animation-name: mover;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+      }
+      
+      @keyframes mover {
+        0% {
+          background-color: black;
+        }
+
+        25% {
+          background-color: magenta;
+          transform: scale(1.5);
+          border-radius: 50%;
+        }
+
+        50% {
+          background-color: green;
+          transform: scale(1);
+          border-radius: 0%;
+        }
+
+        75% {
+          background-color: red;
+          transform: scale(1.5);
+          border-radius: 50%;
+        }
+
+        100% {
+          background-color: yellow;
+          transform: scale(1);
+          border-radius: 0%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container"></div>
+  </body>
+</html>

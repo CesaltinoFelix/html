@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animacoes</title>
+    <style>
+      * {
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #content {
+        width: 400px;
+        height: 400px;
+        background: linear-gradient(#18c351, #5edb87, #c6e9d2);
+        animation-name: mover;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        /* animation-timing-function: linear; */
+      }
+
+      @keyframes mover {
+
+        0%{
+            border-radius: 0%;
+        }
+
+        
+        100%{
+            border-radius: 50%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content"></div>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+.texto-azul{
+    color: blue;
+    font-size: 30px;
+}
+
+.texto-vermelho
+{
+    color: red;
+}
+
+.inline{
+    font-size: 28px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0px;
+    margin: 10px 0px;
+    position: relative;
+    width: max-content;
+}
+
+.inline::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, red,green, blue);
+    bottom: 0;
+    left: 0;
+}
+
+@keyframes move{
+    0% {
+        background-position: 0% 0%;
+    }
+
+    50% {
+        background-position: 400% 0%;
+    }
+
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+button
+{
+    padding: 10px;
+    border-radius: 50px;
+    background-color: #242424;
+    color: white;
+    /* border: 1px solid linear-gradient(to left, blue, red); */
+    position: relative;
+}
+
+button::before
+{
+    position: absolute;
+    content: "";
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    top: -2px;
+    left: -2px;
+    border-radius: 10px;
+    background: linear-gradient(124deg, blue, red, yellow, green);
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(3px);
+    animation: move 20s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out ;
+    border-radius: 50px;
+}

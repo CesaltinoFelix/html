@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula - Animacao 1</title>
+    <style>
+      * {
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      span {
+        color: white;
+      }
+      div {
+        height: 300px;
+        width: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(red, green, blue);
+        border-radius: 50%;
+        animation-name: andar;
+        animation-duration: 2s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+      }
+
+      @keyframes andar {
+        0% {
+          transform: scale(1);
+        }
+        50%{
+            /* transform: scale(1.5) rotate(360deg); */
+            font-size: 30px;
+        }
+        100% {
+            transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <span>Cesaltino Felix</span>
+    </div>
+  </body>
+</html>

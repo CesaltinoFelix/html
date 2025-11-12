@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+
+        body{
+            margin: 0px;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        div{
+            border-radius: 10px;
+            width: 400px;
+            padding: 40px 20px;
+            box-shadow: 0px 0px 8px;
+            text-align: center;
+        }
+
+        form{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        input{
+            height: 30px;
+            width: 100%;
+
+            border: 2px solid #cecece;
+            border-radius: 10px;
+        }
+
+        button{
+            width: 100px;
+            height: 30px;
+            font-size: 18px;
+            border: 1px solid #cecece;
+            border-radius: 10px;
+            transition: all 1s;
+        }
+
+        button:hover{
+            background-color: blue;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Login</h1>
+        <form action="">
+            <input type="email" required placeholder="Digite o seu email">
+            <input type="password" required placeholder="Digite a password">
+            <button>Log in</button>
+        </form>
+    </div>
+</body>
+</html>

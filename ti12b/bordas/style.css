@@ -1,0 +1,23 @@
+body{
+    background: #000000;
+}
+
+h1{
+    border-bottom: 2px solid #fff;
+    width: max-content;
+}
+
+#primeira-div
+{
+    height: 200px;
+    width: 200px;
+    /* border: 2px solid blue; */
+    border-radius: 100%;
+    background-color: red;
+
+
+    /* Adicionar fundo gradiente (com varias cores) */
+    /* background: linear-gradient( to left top, blue, green, red); */
+    background-image: url('image.png');
+    background-size: cover;
+}

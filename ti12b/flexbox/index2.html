@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: auto;
+      }
+
+      nav{
+        position: fixed;
+        background-color: white;
+        width: 100%;
+        height: 40px;
+        gap: 20px;
+        display: flex;
+        padding: 20px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        /* padding-right: 400px; */
+      }
+
+      body{
+        margin: 0px;
+        width: 100%;
+      }
+      #hero {
+        background: url(1.png) no-repeat;
+        background-size: 100% 100%;
+        margin: 0px;
+        height: 100vh;
+      }
+
+      a {
+        color: #000;
+      }
+
+      .about{
+        padding: 0px 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div id="primeiro"><h1>Logo</h1></div>
+      <div id="segundo">
+        <a href="">Home</a>
+        <a href="">About</a>
+        <a href="">Contact</a>
+      </div>
+      <div id="terceiro"><a href="">Carrinho</a></div>
+    </nav>
+    <div id="hero"></div>
+    <h2 style="text-align: center;">About Us</h2>
+    <div class="about">
+        <p style="width: 500px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt porro commodi deleniti eum veritatis nam similique, dolore exercitationem est ipsam accusantium quam mollitia cum quasi nemo possimus rerum ipsum vitae!</p>
+        <img src="./2.png" alt="">
+    </div>
+  </body>
+</html>

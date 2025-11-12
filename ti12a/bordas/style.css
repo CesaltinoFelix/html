@@ -1,0 +1,50 @@
+h1{
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+    border: 5px dashed #700A88;
+    border-radius: 10px;
+}
+
+p{
+    color: magenta;
+}
+
+
+.cor-preta{
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+}
+
+#cor-isabel{
+    color:burlywood;
+}
+
+#div-1
+{
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
+    background: linear-gradient(blue, red, green);
+    /* transform: rotate(60deg); */
+    animation: felix 1s ease alternate infinite;
+}
+.mostrar{
+    opacity: 0;
+    animation: mostrar 3s ease forwards;
+}
+
+@keyframes mostrar {
+    from{
+        /* transform: rotate(0deg); */
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    to{
+        /* transform: rotate(100deg) */
+        transform: translateY(0);
+        opacity: 1;
+
+    }
+} 
