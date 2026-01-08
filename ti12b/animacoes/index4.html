@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animacao 2</title>
+    <style>
+      * {
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        width: 100%;
+        color: #fff;
+      }
+
+      header {
+        background-color: #000077;
+        height: 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 40px;
+      }
+      nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        position: relative;
+      }
+
+      a::before {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        height: 5px;
+        width: 0px;
+        background-color: #fff;
+        transition: all 1s;
+      }
+
+      button {
+        display: none;
+      }
+      a:hover::before {
+        width: 100%;
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          position: fixed;
+          right: 0;
+          top: 60px;
+          width: 150px;
+          flex-direction: column;
+          background-color: #000077;
+          height: calc(100% - 60px);
+          transition: all 2s;
+          transform: translateX(100%);
+        }
+
+        nav.show {
+          transform: translateX(0);
+        }
+
+        button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #fff;
+          border-radius: 5px;
+          font-size: 18px;
+          background-color: transparent;
+          border: 2px solid #ff7300;
+          width: 40px;
+          height: 40px;
+        }
+      }
+
+      .container {
+        padding: 10px 20px;
+      }
+
+      h1 {
+        color: #000077;
+      }
+      span {
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div>Meu Logo</div>
+
+      <button onclick="showMenu()">X</button>
+      <nav>
+        <a href="">Home</a>
+        <a href="">Blog</a>
+        <a href="">About</a>
+        <a href="">Contact</a>
+      </nav>
+    </header>
+    <main>
+      <div class="container">
+        <h1>A Vida e Dura</h1>
+        <span
+          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+          nostrum mollitia repellendus deleniti eum ipsa dolorem iste. Quibusdam
+          officia distinctio, tenetur excepturi culpa consequuntur facere sit
+          earum similique, minima aliquam.</span
+        >
+      </div>
+    </main>
+    <script>
+      var nav = document.querySelector("nav");
+      function showMenu() {
+        nav.classList.toggle("show");
+      }
+    </script>
+  </body>
+</html>
