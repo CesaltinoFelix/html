@@ -3,24 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Json</title>
+    <title>LocalStorage</title>
+    <style>
+        ol li{
+            font-size: 16px;
+            font-weight: bold;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-transform: uppercase;
+        }
+
+        ol li::marker {
+            color: red;
+            font-family: fantasy;
+            font-size: 26px;
+        }
+    </style>
 </head>
 <body>
     
-
-    <script>
-        const pessoa = {
-            nome: "Cesaltino Felix",
-            idade: 59
-        }
-
-
-        const {nome, idade} = pessoa 
-        
-        console.log(`Nome: ${nome}\nIdade: ${idade}`)
+    <h1>LOCALSTORAGE</h1>
+    <input type="text" placeholder="Nome"> <button onclick="inserir()">INSERIR NO LOCALSTORAGE</button>
     
+    <ol id="lista">
+
+    </ol>
+    
+    <script>
+        var itens = JSON.parse(localStorage.getItem("itens")) || []
+        function imprimir(){
+            document.getElementById("lista").innerHTML = ""
+            for (let index = 0; index < itens.length; index++) {
+                const item = itens[index];
+                
+                const li = document.createElement('li')
+                li.innerText = item
+                
+                document.getElementById("lista").appendChild(li)
+            }
+        }
+        function inserir()
+        {
+            const item = document.querySelector('input').value
+            itens.push(item)
+            localStorage.setItem("itens", JSON.stringify(itens))
+            imprimir()
+        }
+        imprimir()
     </script>
-
-
 </body>
 </html>
