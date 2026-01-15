@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARRAY</title>
+    <style>
+        body{
+            margin: 0px;
+            box-sizing: border-box;
+            padding: 0px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #cadastro{  
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;
+            width: 300px;
+        }
+        input{
+            width: 100%;
+            height: 30px;
+        }
+
+        button{
+            color: black;
+            background-color: yellow;
+            border: none;
+            width: 100%;
+            height: 30px;
+        }
+
+        h1{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="cadastro">
+        <h1>CRIE UMA CONTA</h1>
+        <input type="text" placeholder="Nome">
+        <input type="password" placeholder="Senha">
+        <button onclick="cadastrar()">CADASTRAR-SE</button>
+    </div>
+
+    
+     <script>
+        // const usuarios = ["cefelix", "felix", "cesaltino", "Isabel", "Jack", "TI12A"]
+        // //add no final do array
+        // usuarios.push("Celma")
+        // //add no inicio do array
+        // usuarios.unshift("Renato") 
+
+        // //remove no final
+        // usuarios.pop()
+
+        // //remove no inicio
+        // usuarios.shift()
+
+        // //pega o index de um elemento
+        // let index = usuarios.indexOf("felix")
+        // console.log("Index felix : " + index)
+
+        // //remove um elemento por meio do seu index
+        // usuarios.splice(index, 1)
+        // console.log(usuarios)
+     </script>
+
+     <script>
+        //carrega os usuarios que estao no localstorage
+        let usuarios = JSON.parse(localStorage.getItem("usuarios")) || []
+        function cadastrar() {
+            const nome = document.querySelector("input[type='text']").value
+            const senha = document.querySelector("input[type='password']").value
+
+            const novoUsuario = {
+                nome,
+                senha
+            }
+
+            usuarios.push(novoUsuario)
+            localStorage.setItem("usuarios", JSON.stringify(usuarios))
+
+            document.querySelector("input[type='text']").value = ""
+            document.querySelector("input[type='password']").value = ""
+            alert("Usuario criado com sucesso!")
+            window.location.href = "./login.html"
+        }
+     </script>
+</body>
+</html>
