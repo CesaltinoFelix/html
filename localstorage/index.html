@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+        ol li::marker{
+            font-family: fantasy;
+            color: green;
+            font-size: 28px;
+        }
+
+        li{
+            font-weight: bold;
+            font-family: fantasy;
+            font-size: 18px;
+        }
+    </style>
+  </head>
+  <body>
+    <h1>LocalStorage</h1>
+    <input type="text" name="nome" placeholder="Digite um nome" />
+    <button onclick="adicionar()">ADD</button>
+
+    <ol id="lista"></ol>
+    <script>
+      let nomes = JSON.parse(localStorage.getItem("nomes"));
+
+      function adicionar() {
+        let nome = document.querySelector("input").value;
+        nomes.push(nome);
+        localStorage.setItem("nomes", JSON.stringify(nomes));
+        imprimir()
+      }
+
+      function imprimir() {
+        document.querySelector("#lista").innerHTML = "";
+        for (var i = 0; i < nomes.length; i++) {
+          let li = document.createElement("li");
+          li.innerText = nomes[i];
+          document.querySelector("#lista").appendChild(li);
+        }
+      }
+
+
+      imprimir()
+    </script>
+  </body>
+</html>
